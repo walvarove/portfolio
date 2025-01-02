@@ -5,6 +5,7 @@ import ReusableSection from "./ReusableSection.astro";
 
 <ReusableSection key="skills">
   <Code
+    wrap
     code={`new GoodPracticesSkill({
         main: ["Hexagonal Architecture", "DDD", "SOLID", "Testing"],
     });`}
@@ -12,6 +13,7 @@ import ReusableSection from "./ReusableSection.astro";
     theme="ayu-dark"
   />
   <Code
+    wrap
     code={`new LanguagesSkills({
         main: ["Typescript", "Javascript"],
         secondary: ["Go", "Java"],
@@ -21,6 +23,7 @@ import ReusableSection from "./ReusableSection.astro";
     theme="ayu-dark"
   />
   <Code
+  wrap
     code={`new BackendFrameworks({
         main: ["NodeJs"], // NestJs, Express, Fastify
         secondary: ["Fiber", "Spring Boot"],
@@ -29,7 +32,8 @@ import ReusableSection from "./ReusableSection.astro";
     theme="ayu-dark"
   />
   <Code
-  code={`new FrontendFrameworks({
+  wrap
+    code={`new FrontendFrameworks({
         main: ["React", "Angular"], // NextJs, Angular Universal
         secondary: ["Vue"],
         other: ["Ionic"]
@@ -38,6 +42,7 @@ import ReusableSection from "./ReusableSection.astro";
   theme="ayu-dark"
 />
     <Code
+    wrap
     code={`new Misc({
         main: ["Docker", "Kubernetes", "Git", "CI/CD"],
         secondary: ["AWS"],
