@@ -9,17 +9,20 @@ import WorkExperience from '@/components/WorkExperience.astro';
 ---
 
 <!doctype html>
-<html lang="en" class="h-full">
+<html lang="en" class="h-full w-full">
 	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body class="bg-primary w-full"> 
 		<Header />
-		<div class="bg-primary-foreground/15 relative rounded-tr-[32px] h-full">
+		<div class="bg-primary-foreground/15">
 			<Summary />
 		</div>
 		<WorkExperience />
-		<div class="bg-primary-foreground/15 relative rounded-tr-[32px] h-full">
+		<div class="bg-primary-foreground/15">
 			<TechStack />
 		</div>
 	</body>
