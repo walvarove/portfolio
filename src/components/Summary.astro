@@ -1,0 +1,20 @@
+---
+import ReusableSection from './ReusableSection.astro';
+import { getEntry } from 'astro:content';
+
+const summary = await getEntry('sections', 'summary');
+if (!summary) throw new Error('Summary not found');
+
+const { Content } = await summary.render();
+---
+
+<ReusableSection key={summary.data.key}>
+    <div class="flex flex-col gap-2">
+        <p class="text-primary-foreground/50">/**</p>
+        <Content />
+        <p class="text-primary-foreground/50">*/</p>
+    </div>
+</ReusableSection>
+
+<style>
+</style>

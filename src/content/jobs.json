@@ -1,0 +1,34 @@
+[
+  {
+    "company": "Windelivery",
+    "link": "https://windelivery.io/",
+    "start": "2023-12-01",
+    "end": null,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "job": "Full Stack Developer",
+    "teckStack": [
+      "Angular",
+      "Next.js",
+      "Tailwind",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "AWS",
+      "PostgreSQL",
+      "Docker",
+      "Git",
+      "Jira",
+      "Confluence",
+      "Slack"
+    ]
+  },
+  {
+    "company": "Designable",
+    "link": "https://lanzadera.es/proyecto/designable/",
+    "start": "2023-03-01",
+    "end": "2023-09-15",
+    "description": "Developed and maintained web application and back office functionalities, focusing on listing and customization of properties, as well as efficient management of various buildings.",
+    "job": "Full Stack Developer",
+    "teckStack": ["NodeJs", "React", "Postgres", "Typeorm", "AWS", "Docker"]
+  }
+]

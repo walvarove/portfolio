@@ -1,0 +1,60 @@
+---
+import { Code } from "astro:components";
+import ReusableSection from "./ReusableSection.astro";
+---
+
+<ReusableSection key="skills">
+  <Code
+    code={`new GoodPracticesSkill({
+        main: ["Hexagonal Architecture", "DDD", "SOLID", "Testing"],
+    });`}
+    lang="typescript"
+    theme="ayu-dark"
+  />
+  <Code
+    code={`new LanguagesSkills({
+        main: ["Typescript", "Javascript"],
+        secondary: ["Go", "Java"],
+        familiarWith: ["Phyton"]
+    });`}
+    lang="typescript"
+    theme="ayu-dark"
+  />
+  <Code
+    code={`new BackendFrameworks({
+        main: ["NodeJs"], // NestJs, Express, Fastify
+        secondary: ["Fiber", "Spring Boot"],
+    });`}
+    lang="typescript"
+    theme="ayu-dark"
+  />
+  <Code
+  code={`new FrontendFrameworks({
+        main: ["React", "Angular"], // NextJs, Angular Universal
+        secondary: ["Vue"],
+        other: ["Ionic"]
+    });`}
+  lang="typescript"
+  theme="ayu-dark"
+/>
+    <Code
+    code={`new Misc({
+        main: ["Docker", "Kubernetes", "Git", "CI/CD"],
+        secondary: ["AWS"],
+        database: ["PostgreSQL", "MySQL", "MongoDB", "Redis"],
+        oms: ["TypeORM", "Sequelize", "Mongoose"],
+    });`}
+    lang="typescript"
+    theme="ayu-dark"
+    />
+</ReusableSection>
+
+<style>
+  pre {
+    @apply py-2;
+    background: transparent !important;
+  }
+  /* :global(code) { 
+        @apply grid gap-1.5;
+    } */
+</style>

@@ -1,0 +1,43 @@
+---
+import ReusableSection from "./ReusableSection.astro";
+import jobs from "../content/jobs.json";
+import { calculateDuration, toSimpleDate } from "../content/jobs";
+---
+
+<ReusableSection key="workexperience" keyComment="~4 years">
+  <div class="grid divide-y divide-primary-foreground/10">
+    {
+      jobs.map((job) => {
+        return (
+          <div class="py-10">
+            <div class="flex justify-between items-end">
+              <div class="flex gap-1 items-end">
+                <h3>{job.company}</h3>
+              </div>
+              <small class="items-end text-primary-foreground/50">Since: {toSimpleDate(job.start)}</small>
+            </div>
+            <div class="flex justify-between items-end">
+              <p class="text-primary-foreground/50 italic">{job.job}</p>
+              <div class="flex gap-3 items-end h-min">
+                {!job.end ? (
+                  <p class="text-yellow-200 relative italic text-right">
+                    current
+                  </p>
+                ) : null}
+                <p class="flex gap-1 items-end">
+                  {calculateDuration(job.start, job.end)}
+                </p>
+              </div>
+            </div>
+            <p class="mt-3">{job.description}</p>
+            <div class="flex flex-wrap gap-x-2 mt-2">
+                {job.teckStack.map((tech) => {
+                    return <p class="text-primary-foreground/50 italic">#{tech}</p>
+                })}
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+</ReusableSection>
