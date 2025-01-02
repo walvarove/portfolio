@@ -12,18 +12,17 @@ import { calculateDuration, toSimpleDate } from "../content/jobs";
           <div class="py-10">
             <div class="flex justify-between items-end">
               <div class="flex gap-1 items-end">
-                <h3>{job.company}</h3>
+                <h3>{job.company}</h3>                {!job.end ? (
+                  <p class="text-yellow-200 relative italic text-right">
+                    current
+                  </p>
+                ) : null}
               </div>
               <small class="items-end text-primary-foreground/50">Since: {toSimpleDate(job.start)}</small>
             </div>
             <div class="flex justify-between items-end">
               <p class="text-primary-foreground/50 italic">{job.job}</p>
               <div class="flex gap-3 items-end h-min">
-                {!job.end ? (
-                  <p class="text-yellow-200 relative italic text-right">
-                    current
-                  </p>
-                ) : null}
                 <p class="flex gap-1 items-end">
                   {calculateDuration(job.start, job.end)}
                 </p>
