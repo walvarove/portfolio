@@ -10,27 +10,34 @@ import { calculateDuration, toSimpleDate } from "../content/jobs";
       jobs.map((job) => {
         return (
           <div class="py-6 md:py-10">
-            <div class="flex justify-between items-end">
-              <div class="flex gap-1 items-end">
-                <h3>{job.company}</h3>                {!job.end ? (
-                  <p class="text-yellow-200 relative italic text-right">
+            <div class="flex justify-between">
+              <div class="flex flex-col w-full gap-1 md:w-fit">
+                <h3 class="text-primary-foreground/50 leading-none italic text-cyan-500 w-full text-nowrap">
+                  {job.job} 
+                </h3>
+                <h4 class="text-primary-foreground/50">{job.company}</h4>
+              </div>
+              <div class="flex flex-col mt-1 gap-y-1 justify-evenly items-end w-full md:w-fit">
+              <div class="flex gap-x-3 gap-y-1 items-end flex-wrap justify-end">
+                {!job.end ? (
+                    <p class="text-yellow-200 leading-none md:leading-normal relative italic text-right">
                     current
                   </p>
                 ) : null}
-              </div>
-              <small class="items-end text-primary-foreground/50">Since: {toSimpleDate(job.start)}</small>
-            </div>
-            <div class="flex justify-between items-end">
-              <p class="text-primary-foreground/50 italic w-fit">{job.job}</p>
-                <p class="flex gap-1 items-end text-right w-fit text-xs md:text-md">
+                <p class="flex items-end text-right w-fit text-[11px] md:text-sm leading-none md:text-md">
                   {calculateDuration(job.start, job.end)}
                 </p>
+              </div>
+              <small class="items-end text-primary-foreground/50 leading-none">
+                Since: {toSimpleDate(job.start)}
+              </small>
+                </div>
             </div>
             <p class="mt-8 mb-4">{job.description}</p>
             <div class="flex flex-wrap gap-x-2 mt-2">
-                {job.teckStack.map((tech) => {
-                    return <p class="text-primary-foreground/50 italic">#{tech}</p>
-                })}
+              {job.teckStack.map((tech) => {
+                return <p class="text-primary-foreground/50 italic">#{tech}</p>;
+              })}
             </div>
           </div>
         );
