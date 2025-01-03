@@ -18,7 +18,7 @@ import { calculateDuration, toSimpleDate } from "../content/jobs";
                 <h4 class="text-primary-foreground/50">{job.company}</h4>
               </div>
               <div class="flex flex-col mt-1 gap-y-2 md:justify-evenly items-start md:items-end w-full md:w-fit">
-                <div style="justify-content: start;" class="flex justify-center items-center gap-x-3 gap-y-1 items-start flex-wrap md:justify-end flex-row-reverse md:flex-row w-full">
+                <div class="grid md:flex justify-start md:justify-end gap-x-3 gap-y-1 items-center flex-wrap flex-row-reverse md:flex-row w-full">
                   {!job.end ? (
                     <p class="text-yellow-200 leading-none md:leading-normal relative">
                       current
