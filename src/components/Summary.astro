@@ -8,12 +8,8 @@ if (!summary) throw new Error("Summary not found");
 const { Content } = await summary.render();
 ---
 
-<ReusableSection>
-  <div class="text-primary-foreground grid gap-6 mt-4 pb-6">
-    <p class="text-primary-foreground/50">/** @summary</p>
+<ReusableSection key="summary">
     <Content />
-    <p class="text-primary-foreground/50">*/</p>
-  </div>
 </ReusableSection>
 
 <style></style>
