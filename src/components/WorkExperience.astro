@@ -2,6 +2,13 @@
 import ReusableSection from "./ReusableSection.astro";
 import jobs from "../content/jobs.json";
 import { calculateDuration, toSimpleDate } from "../content/jobs";
+import { Dialog, Button } from '@headlessui/react'
+import { atom } from 'nanostores';
+import WorksDialog from "./WorksDialog";
+
+export const isOpen = atom(false);
+
+
 ---
 
 <ReusableSection key="workexperience" keyComment="~4years">
@@ -43,5 +50,6 @@ import { calculateDuration, toSimpleDate } from "../content/jobs";
         );
       })
     }
+  <WorksDialog client:load />
   </div>
 </ReusableSection>

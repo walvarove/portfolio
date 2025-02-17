@@ -27,8 +27,35 @@
     "link": "https://lanzadera.es/proyecto/designable/",
     "start": "2023-03-01",
     "end": "2023-09-15",
-    "description": "Developed and maintained web application and back office functionalities, focusing on listing and customization of properties, as well as efficient management of various buildings.",
+    "description": "Led projects related to investment fund management, including the development of analytical tools, portfolio management systems, and reporting solutions.",
     "job": "Full Stack Developer",
     "teckStack": ["NodeJs", "React", "Postgres", "Typeorm", "AWS", "Docker"]
+  },
+  {
+    "company": "AllFunds Bank",
+    "link": "https://allfunds.com/es/",
+    "start": "2022-06-02",
+    "end": "2023-03-23",
+    "description": "Developed and maintained the administration web interface for users utilizing React.",
+    "job": "Full Stack Developer",
+    "teckStack": ["NodeJs", "React", "MongoDB", "RabbitMQ", "Microservices", "Docker", "Javascript"]
+  },
+  {
+    "company": "Baintex Technologies",
+    "link": "https://www.baintex.com/",
+    "start": "2021-10-01",
+    "end": "2022-06-01",
+    "description": "Developed and maintained the administration web interface for users utilizing React.",
+    "job": "Frontend Developer",
+    "teckStack": ["React", "Typescript", "Tailwind", "Docker", "Git", "Jira"]
+  },
+  {
+    "company": "Okode",
+    "link": "https://ahorasomos.izertis.com/okode/",
+    "start": "2021-02",
+    "end": "2021-10-01",
+    "description": "Specialized in application development and maintenance using Ionic/Angular and Spring (Java), employing version control with Git/GitHub, project management with Jira, and ensuring continuous development through CircleCI integration.",
+    "job": "Ionic Developer",
+    "teckStack": ["Ionic", "Angular", "Typescript", "Spring",  "Slack", "Git", "Jira", "CircleCI"]
   }
 ]
