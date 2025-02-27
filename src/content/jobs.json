@@ -2,25 +2,12 @@
   {
     "company": "Windelivery",
     "link": "https://windelivery.io/",
-    "start": "2023-12-01",
+    "start": "2023-12-13",
     "end": null,
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "description": "Development and maintenance of the backoffice for the management of stores, menus, products... of different big brands such as Burger King.Development and maintenance of the backoffice for the management of stores, menus, products... of different big brands such as Burger King. All development by using practices like Domain Driven Design, Hexagonal Architecture, testing or Event Driven Design, and all hosted in AWS",
     "job": "Software Engineer",
-    "teckStack": [
-      "Angular",
-      "Next.js",
-      "Tailwind",
-      "TypeScript",
-      "Node.js",
-      "Express",
-      "AWS",
-      "PostgreSQL",
-      "Docker",
-      "Git",
-      "Jira",
-      "Confluence",
-      "Slack"
-    ]
+    "teckStack": ["NestJs", "AWS", "Angular", "Tailwind", "TypeScript", "Node.js", "Express", "PostgreSQL", "Docker", "Git", "Jira", "Confluence", "Slack"],
+    "location": "Remote"
   },
   {
     "company": "Designable",
@@ -29,7 +16,8 @@
     "end": "2023-09-15",
     "description": "Led projects related to investment fund management, including the development of analytical tools, portfolio management systems, and reporting solutions.",
     "job": "Full Stack Developer",
-    "teckStack": ["NodeJs", "React", "Postgres", "Typeorm", "AWS", "Docker"]
+    "teckStack": ["NodeJs", "React", "Postgres", "Typeorm", "AWS", "Docker"],
+    "location": "In site"
   },
   {
     "company": "AllFunds Bank",
@@ -38,7 +26,8 @@
     "end": "2023-03-23",
     "description": "Developed and maintained the administration web interface for users utilizing React.",
     "job": "Full Stack Developer",
-    "teckStack": ["NodeJs", "React", "MongoDB", "RabbitMQ", "Microservices", "Docker", "Javascript"]
+    "teckStack": ["NodeJs", "React", "MongoDB", "RabbitMQ", "Microservices", "Docker", "Javascript"],
+    "location": "Remote"
   },
   {
     "company": "Baintex Technologies",
@@ -47,7 +36,8 @@
     "end": "2022-06-01",
     "description": "Developed and maintained the administration web interface for users utilizing React.",
     "job": "Frontend Developer",
-    "teckStack": ["React", "Typescript", "Tailwind", "Docker", "Git", "Jira"]
+    "teckStack": ["React", "Typescript", "Tailwind", "Docker", "Git", "Jira"],
+    "location": "In site"
   },
   {
     "company": "Okode",
@@ -56,6 +46,7 @@
     "end": "2021-10-01",
     "description": "Specialized in application development and maintenance using Ionic/Angular and Spring (Java), employing version control with Git/GitHub, project management with Jira, and ensuring continuous development through CircleCI integration.",
     "job": "Ionic Developer",
-    "teckStack": ["Ionic", "Angular", "Typescript", "Spring",  "Slack", "Git", "Jira", "CircleCI"]
+    "teckStack": ["Ionic", "Angular", "Typescript", "Spring",  "Slack", "Git", "Jira", "CircleCI"],
+    "location": "Hybrid"
   }
 ]

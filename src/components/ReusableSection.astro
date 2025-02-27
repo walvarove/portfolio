@@ -16,7 +16,7 @@ const { key, keyComment } = Astro.props;
       class="text-primary-foreground/50 text-sm">import <span class="text-fuchsia-400">"{key}"</span>;
       {keyComment ? <span class="text-primary-foreground/50">// {keyComment}</span> : null}
     </code> : null}
-    <div class="text-primary-foreground text-sm font-mono">
+    <div class="text-primary-foreground text-sm font-mono grid gap-3">
         <slot />
     </div>
   </div>
