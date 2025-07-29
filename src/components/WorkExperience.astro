@@ -2,12 +2,6 @@
 import ReusableSection from "./ReusableSection.astro";
 import jobs from "../content/jobs.json";
 import { calculateDuration, toSimpleDate } from "../content/jobs";
-import { Dialog, Button } from '@headlessui/react'
-import { atom } from 'nanostores';
-import WorksDialog from "./WorksDialog";
-
-export const isOpen = atom(false);
-
 
 ---
 
@@ -16,7 +10,7 @@ export const isOpen = atom(false);
     {
       jobs.map((job) => {
         return (
-          <div class="py-6 md:py-10">
+          <div class="py-6 last:pb-2 md:py-10">
             <div class="flex md:justify-between flex-wrap">
               <div class="flex flex-col gap-1 w-full md:w-fit">
                 <h3 class="leading-none text-cyan-500 text-nowrap">
@@ -50,6 +44,5 @@ export const isOpen = atom(false);
         );
       })
     }
-  <WorksDialog client:load />
   </div>
 </ReusableSection>
