@@ -15,6 +15,7 @@ const calculateDuration = (start: string, end: string | null) => {
   const endDate = end ? new Date(end) : new Date();
   const diffMonths = differenceInMonths(endDate, startDate);
   const diffYears = differenceInYears(endDate, startDate);
+  console.log("");
 
   if (diffYears > 0) {
     return diffYears + " years and " + (diffMonths % 11) + " months";
