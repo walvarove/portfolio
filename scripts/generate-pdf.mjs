@@ -21,6 +21,12 @@ const CHROME_PATH =
   process.env.CHROME_PATH ||
   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 
+// Skip in CI environments where Chrome is not available
+if (process.env.CI) {
+  console.log("⚠ CI environment detected — skipping PDF generation.");
+  process.exit(0);
+}
+
 const PORT = 4322; // use a non-default port to avoid conflicts
 
 /** Start `astro preview` and wait until it's ready */
