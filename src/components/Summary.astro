@@ -9,5 +9,7 @@ const { Content } = await summary.render();
 ---
 
 <ReusableSection key="summary">
-    <Content />
+    <div class="prose-sm prose-invert max-w-none text-foreground/60 leading-relaxed font-sans [&>p]:mb-3 [&>p:last-child]:mb-0">
+        <Content />
+    </div>
 </ReusableSection>

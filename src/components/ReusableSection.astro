@@ -1,23 +1,33 @@
 ---
-// define import props
 interface Props {
-  key?: string;
-  keyComment?: string;
+    key?: string;
+    keyComment?: string;
 }
 
 const { key, keyComment } = Astro.props;
 ---
 
-<section class="h-auto py-8 bg-primary/90 px-4">
-  <div
-    class="max-w-screen-md mx-auto relative grid gap-5 w-full text-primary-foreground"
-  >
-    {key ? <code
-      class="text-primary-foreground/50 text-sm">import <span class="text-fuchsia-400">"{key}"</span>;
-      {keyComment ? <span class="text-primary-foreground/50">// {keyComment}</span> : null}
-    </code> : null}
-    <div class="text-primary-foreground text-sm font-mono grid gap-3">
-        <slot />
+<section class="lg:py-10 px-4 py-4">
+    <div class="max-w-screen-md mx-auto w-full">
+        {
+            key ? (
+                <div class="flex items-center gap-3 mb-6">
+                    <code class="text-xs font-mono text-muted-foreground">
+                        <span class="text-cyan-400/50">import</span>{" "}
+                        <span class="text-cyan-400">"{key}"</span>
+                        {keyComment ? (
+                            <span class="text-muted-foreground/40">
+                                {" "}
+                                // {keyComment}
+                            </span>
+                        ) : null}
+                    </code>
+                    <div class="flex-1 h-px bg-border" />
+                </div>
+            ) : null
+        }
+        <div class="text-foreground/80 text-sm font-mono grid gap-4">
+            <slot />
+        </div>
     </div>
-  </div>
 </section>

@@ -24,11 +24,15 @@ const calculateDuration = (start: string, end: string | null) => {
   }
 };
 
-const toSimpleDate = (startDate: string) => {
-  return new Date(startDate).toLocaleDateString("en-US", {
+const toSimpleDate = (date: string) => {
+  return new Date(date).toLocaleDateString("en-US", {
     month: "short",
     year: "numeric",
   });
 };
 
-export { calculateDuration, toSimpleDate };
+const getYear = (date: string) => {
+  return new Date(date).getFullYear();
+};
+
+export { calculateDuration, getYear, toSimpleDate };

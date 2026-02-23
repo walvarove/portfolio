@@ -20,5 +20,8 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# generated at build time from /resume page
+public/resume.pdf
+
 # jetbrains setting folder
 .idea/

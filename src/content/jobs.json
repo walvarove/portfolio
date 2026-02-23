@@ -6,7 +6,17 @@
     "end": null,
     "description": "Development and maintenance of the backoffice for the management of stores, menus, products... of different big brands such as Burger King.Development and maintenance of the backoffice for the management of stores, menus, products... of different big brands such as Burger King. All development by using practices like Domain Driven Design, Hexagonal Architecture, testing or Event Driven Design, and all hosted in AWS",
     "job": "Software Engineer",
-    "teckStack": ["NestJs", "AWS", "Angular", "Tailwind", "TypeScript", "Node.js", "Express", "PostgreSQL", "Docker", "Git", "Jira", "Confluence", "Slack"],
+    "teckStack": [
+      "DDD",
+      "Hexagonal Architecture",
+      "TDD",
+      "NestJs",
+      "AWS",
+      "PostgreSQL",
+      "Test Containers",
+      "Angular",
+      "Playwright"
+    ],
     "location": "Remote"
   },
   {
@@ -16,7 +26,17 @@
     "end": "2023-09-15",
     "description": "Led projects related to investment fund management, including the development of analytical tools, portfolio management systems, and reporting solutions.",
     "job": "Full Stack Developer",
-    "teckStack": ["NodeJs", "React", "Postgres", "Typeorm", "AWS", "Docker"],
+    "teckStack": [
+      "DDD",
+      "Hexagonal Architecture",
+      "TDD",
+      "Express",
+      "React",
+      "Postgres",
+      "Typeorm",
+      "AWS",
+      "Docker"
+    ],
     "location": "In site"
   },
   {
@@ -26,7 +46,14 @@
     "end": "2023-03-23",
     "description": "Developed and maintained the administration web interface for users utilizing React.",
     "job": "Full Stack Developer",
-    "teckStack": ["NodeJs", "React", "MongoDB", "RabbitMQ", "Microservices", "Docker", "Javascript"],
+    "teckStack": [
+      "NodeJs",
+      "React",
+      "MongoDB",
+      "RabbitMQ",
+      "Microservices",
+      "Docker"
+    ],
     "location": "Remote"
   },
   {
@@ -44,9 +71,9 @@
     "link": "https://ahorasomos.izertis.com/okode/",
     "start": "2021-02",
     "end": "2021-10-01",
-    "description": "Specialized in application development and maintenance using Ionic/Angular and Spring (Java), employing version control with Git/GitHub, project management with Jira, and ensuring continuous development through CircleCI integration.",
+    "description": "Specialized in application development and maintenance using Ionic/Angular and Spring (Java).",
     "job": "Ionic Developer",
-    "teckStack": ["Ionic", "Angular", "Typescript", "Spring",  "Slack", "Git", "Jira", "CircleCI"],
+    "teckStack": ["Ionic", "Angular", "Typescript", "Spring", "CircleCI"],
     "location": "Hybrid"
   }
 ]

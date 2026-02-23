@@ -1,0 +1,546 @@
+---
+import jobs from "../content/jobs.json";
+import { toSimpleDate } from "../content/jobs";
+import { skills } from "../content/skills";
+import { getEntry } from "astro:content";
+
+const name = "Álvaro Pedro Ponce";
+const title = "Software Engineer";
+const email = "pedroponcealvaro@gmail.com";
+const github = "github.com/walvarove";
+const linkedin = "linkedin.com/in/alvaropedroponce";
+const location = "Valencia, Spain";
+
+const summaryEntry = await getEntry("sections", "summary");
+if (!summaryEntry) throw new Error("Summary not found");
+const { Content: SummaryContent } = await summaryEntry.render();
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{name} — Resume</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            :root {
+                --accent: #0891b2;
+                --accent-light: #e0f2fe;
+                --text: #0f172a;
+                --muted: #64748b;
+                --muted-light: #94a3b8;
+                --border: #e2e8f0;
+                --bg: #ffffff;
+                --surface: #f8fafc;
+            }
+
+            body {
+                font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+                font-size: 10pt;
+                color: var(--text);
+                background: var(--bg);
+                line-height: 1.55;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            /* ── Print bar ── */
+            .print-bar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 100;
+                background: #0f172a;
+                color: #f8fafc;
+                padding: 8px 24px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                font-size: 12px;
+                gap: 12px;
+            }
+
+            .print-bar a.back {
+                color: #94a3b8;
+                text-decoration: none;
+            }
+
+            .print-bar a.back:hover {
+                color: #f8fafc;
+            }
+
+            .print-bar span {
+                color: #64748b;
+                font-size: 11px;
+            }
+
+            .print-bar button {
+                background: var(--accent);
+                color: #fff;
+                border: none;
+                padding: 5px 14px;
+                border-radius: 4px;
+                font-size: 12px;
+                cursor: pointer;
+                font-weight: 600;
+            }
+
+            .print-bar button:hover {
+                background: #0e7490;
+            }
+
+            /* ── Page ── */
+            .page {
+                max-width: 780px;
+                margin: 44px auto 40px;
+                padding: 32px 40px;
+            }
+
+            /* ── Header ── */
+            .resume-header {
+                display: grid;
+                gap: 4px;
+                padding-bottom: 20px;
+                margin-bottom: 24px;
+                border-bottom: 2px solid var(--text);
+            }
+
+            .resume-header h1 {
+                font-size: 26pt;
+                font-weight: 800;
+                letter-spacing: -1px;
+                line-height: 1;
+                color: var(--accent);
+            }
+
+            .header-title {
+                font-size: 11pt;
+                font-weight: 500;
+                color: var(--muted);
+                margin-top: 4px;
+                letter-spacing: 0.02em;
+                text-transform: uppercase;
+                font-size: 8.5pt;
+            }
+
+            .contact-row {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 4px 16px;
+                padding-top: 6px;
+            }
+
+            .contact-item {
+                display: inline-flex;
+                align-items: center;
+                gap: 4px;
+                font-size: 8.5pt;
+                color: var(--muted);
+                text-decoration: none;
+            }
+
+            .contact-item svg {
+                width: 10px;
+                height: 10px;
+                flex-shrink: 0;
+                color: var(--accent);
+            }
+
+            .contact-item:hover {
+                color: var(--accent);
+            }
+
+            /* ── Section heading ── */
+            .section-title {
+                font-size: 7.5pt;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.12em;
+                color: var(--accent);
+                margin-bottom: 12px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .section-title::after {
+                content: "";
+                flex: 1;
+                height: 1px;
+                background: var(--border);
+            }
+
+            section {
+                margin-bottom: 20px;
+            }
+
+            /* ── Summary ── */
+            .summary p {
+                font-size: 10pt;
+                line-height: 1.65;
+                color: #334155;
+            }
+
+            /* ── Jobs ── */
+            .jobs {
+                display: grid;
+                gap: 0;
+            }
+
+            .job {
+                padding-bottom: 10px;
+                margin-bottom: 10px;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .job:last-child {
+                padding-bottom: 0;
+                margin-bottom: 0;
+                border-bottom: none;
+            }
+
+            .job-accent {
+                display: none;
+            }
+
+            .job-body {
+            }
+
+            .job-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+                flex-wrap: wrap;
+                gap: 2px 8px;
+                margin-bottom: 1px;
+            }
+
+            .job-title {
+                font-weight: 700;
+                font-size: 10.5pt;
+                color: var(--text);
+            }
+
+            .job-meta {
+                font-size: 8.5pt;
+                color: var(--muted-light);
+                white-space: nowrap;
+                font-variant-numeric: tabular-nums;
+            }
+
+            .job-company {
+                font-size: 9pt;
+                color: var(--muted);
+                margin-bottom: 5px;
+            }
+
+            .job-company .location-badge {
+                display: inline-block;
+                font-size: 7.5pt;
+                background: var(--surface);
+                border: 1px solid var(--border);
+                border-radius: 3px;
+                padding: 0 5px;
+                color: var(--muted-light);
+                margin-left: 4px;
+                vertical-align: middle;
+            }
+
+            .job-description {
+                font-size: 9.5pt;
+                line-height: 1.55;
+                color: #334155;
+                margin-bottom: 6px;
+            }
+
+            .job-stack {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 3px 4px;
+            }
+
+            .job-stack span {
+                font-size: 7.5pt;
+                color: var(--accent);
+                background: var(--accent-light);
+                padding: 1px 6px;
+                border-radius: 3px;
+                font-family: ui-monospace, "SF Mono", monospace;
+                font-weight: 500;
+            }
+
+            /* ── Skills ── */
+
+            .skills-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 6px 32px;
+                break-inside: avoid;
+            }
+
+            .skill-row {
+                font-size: 9.5pt;
+                display: block;
+                gap: 6px;
+            }
+
+            .skill-row strong {
+                font-weight: 600;
+                color: var(--text);
+                white-space: nowrap;
+                min-width: 82px;
+            }
+
+            .skill-row span {
+                color: var(--muted);
+                font-size: 9pt;
+            }
+
+            /* ── Print ── */
+            @media print {
+                .print-bar {
+                    display: none;
+                }
+
+                .page {
+                    margin: 0;
+                    padding: 0;
+                    max-width: 100%;
+                }
+
+                body {
+                    font-size: 9pt;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: inherit;
+                }
+
+                section {
+                    margin-bottom: 14px;
+                }
+
+                .resume-header {
+                    padding-bottom: 14px;
+                    margin-bottom: 16px;
+                }
+
+                .resume-header h1 {
+                    font-size: 20pt;
+                }
+
+                .job {
+                    break-inside: avoid;
+                }
+
+                .job-stack span {
+                    background: none;
+                    color: var(--muted);
+                    padding: 0;
+                    font-size: 7.5pt;
+                }
+
+                .job-stack span::after {
+                    content: " ·";
+                }
+
+                .job-stack span:last-child::after {
+                    content: "";
+                }
+
+                .section-title::after {
+                    background: #ccc;
+                }
+            }
+
+            @page {
+                margin: 12mm 14mm;
+                size: A4;
+            }
+        </style>
+    </head>
+    <body>
+        {
+            import.meta.env.DEV && (
+                <div class="print-bar">
+                    <a class="back" href="/">
+                        &larr; Back to portfolio
+                    </a>
+                    <span id="pdf-status">
+                        Click to regenerate public/resume.pdf
+                    </span>
+                    <button
+                        id="pdf-btn"
+                        onclick={`
+                    const btn = document.getElementById('pdf-btn');
+                    const status = document.getElementById('pdf-status');
+                    btn.disabled = true;
+                    btn.textContent = 'Generating…';
+                    status.textContent = 'Running puppeteer…';
+                    fetch('/api/generate-pdf', { method: 'POST' })
+                        .then(r => r.json())
+                        .then(d => {
+                            btn.disabled = false;
+                            btn.textContent = 'Generate PDF';
+                            status.textContent = d.ok ? '✓ PDF saved to public/resume.pdf' : '✗ Failed — check console';
+                            if (!d.ok) console.error(d.log);
+                        });
+                `}
+                    >
+                        Generate PDF
+                    </button>
+                </div>
+            )
+        }
+
+        <div class="page">
+            <!-- Header -->
+            <header class="resume-header">
+                <div>
+                    <h1>{name}</h1>
+                    <p class="header-title">{title}</p>
+                </div>
+                <div class="contact-row">
+                    <a href={`mailto:${email}`} class="contact-item">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            ><rect width="20" height="16" x="2" y="4" rx="2"
+                            ></rect><path
+                                d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
+                            ></path></svg
+                        >
+                        {email}
+                    </a>
+                    <a
+                        href={`https://${github}`}
+                        target="_blank"
+                        class="contact-item"
+                    >
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            ><path
+                                d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65S9 17.44 9 18v4"
+                            ></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg
+                        >
+                        {github}
+                    </a>
+                    <a
+                        href={`https://${linkedin}`}
+                        target="_blank"
+                        class="contact-item"
+                    >
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            ><path
+                                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                            ></path><rect width="4" height="12" x="2" y="9"
+                            ></rect><circle cx="4" cy="4" r="2"></circle></svg
+                        >
+                        {linkedin}
+                    </a>
+                    <span class="contact-item">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            ><path
+                                d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                            ></path><circle cx="12" cy="10" r="3"></circle></svg
+                        >
+                        {location}
+                    </span>
+                </div>
+            </header>
+
+            <!-- Profile -->
+            <section class="summary">
+                <h2 class="section-title">Profile</h2>
+                <SummaryContent />
+            </section>
+
+            <!-- Work Experience -->
+            <section>
+                <h2 class="section-title">Work Experience</h2>
+                <div class="jobs">
+                    {
+                        jobs.map((job) => (
+                            <div class="job">
+                                <div class="job-accent" />
+                                <div class="job-body">
+                                    <div class="job-header">
+                                        <span class="job-title">{job.job}</span>
+                                        <span class="job-meta">
+                                            {toSimpleDate(job.start)} —{" "}
+                                            {job.end
+                                                ? toSimpleDate(job.end)
+                                                : "Present"}
+                                        </span>
+                                    </div>
+                                    <div class="job-company">{job.company}</div>
+                                    <p class="job-description">
+                                        {job.description}
+                                    </p>
+                                    <div class="job-stack">
+                                        {job.teckStack.map((tech) => (
+                                            <span>{tech}</span>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </section>
+
+            <!-- Skills -->
+            <section class="skills-section">
+                <h2 class="section-title">Skills</h2>
+
+                {
+                    skills.map((category) => {
+                        const allItems = Object.entries(category)
+                            .filter(([k]) => k !== "label")
+                            .flatMap(([, items]) => items as string[]);
+                        return (
+                            <div class="skill-row">
+                                <strong>
+                                    {category.label
+                                        .replace(/_/g, " ")
+                                        .replace(/&/g, "&")}
+                                </strong>
+                                <span class="skill-items">
+                                    {allItems.join(", ")}
+                                </span>
+                            </div>
+                        );
+                    })
+                }
+            </section>
+        </div>
+    </body>
+</html>

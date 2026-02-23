@@ -1,65 +1,40 @@
 ---
-import { Code } from "astro:components";
 import ReusableSection from "./ReusableSection.astro";
+import { skills } from "../content/skills";
+
+const tierColors: Record<string, string> = {
+    main: "text-foreground/80 border-border bg-secondary/40",
+    secondary: "text-foreground/50 border-border/60 bg-secondary/20",
+    familiar: "text-foreground/35 border-border/40 bg-transparent",
+    other: "text-foreground/35 border-border/40 bg-transparent",
+    databases: "text-cyan-400/35 border-cyan-400/15 bg-cyan-400/5",
+    orms: "text-foreground/35 border-border/40 bg-transparent",
+};
 ---
 
 <ReusableSection key="skills">
-  <Code
-    wrap
-    code={`new GoodPracticesSkill({
-        main: ["Hexagonal Architecture", "DDD", "SOLID", "Testing"],
-    });`}
-    lang="typescript"
-    theme="ayu-dark"
-  />
-  <Code
-    wrap
-    code={`new LanguagesSkills({
-        main: ["Typescript", "Javascript"],
-        secondary: ["Go", "Java"],
-        familiarWith: ["Phyton"]
-    });`}
-    lang="typescript"
-    theme="ayu-dark"
-  />
-  <Code
-  wrap
-    code={`new BackendFrameworks({
-        main: ["NodeJs"], // NestJs, Express, Fastify
-        secondary: ["Fiber", "Spring Boot"],
-    });`}
-    lang="typescript"
-    theme="ayu-dark"
-  />
-  <Code
-  wrap
-    code={`new FrontendFrameworks({
-        main: ["React", "Angular"], // NextJs, Angular Universal
-        secondary: ["Vue"],
-        other: ["Ionic"]
-    });`}
-  lang="typescript"
-  theme="ayu-dark"
-/>
-    <Code
-    wrap
-    code={`new Misc({
-        main: ["Docker", "Kubernetes", "Git", "CI/CD"],
-        secondary: ["AWS"],
-        database: ["PostgreSQL", "MySQL", "MongoDB", "Redis"],
-        oms: ["TypeORM", "Sequelize", "Mongoose"],
-    });`}
-    lang="typescript"
-    theme="ayu-dark"
-    />
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {
+            skills.map((category) => (
+                <div class="rounded-lg border border-border bg-card/50 p-4 hover:border-cyan-400/20 transition-colors duration-300">
+                    <p class="text-[10px] font-mono text-cyan-400/70 mb-3 tracking-widest uppercase">
+                        {category.label}
+                    </p>
+                    <div class="flex flex-wrap gap-1.5">
+                        {Object.entries(category)
+                            .filter(([k]) => k !== "label")
+                            .flatMap(([tier, items]) =>
+                                (items as string[]).map((item) => (
+                                    <span
+                                        class={`px-2 py-0.5 rounded text-[11px] font-mono border transition-colors cursor-default ${tierColors[tier] ?? tierColors.main}`}
+                                    >
+                                        {item}
+                                    </span>
+                                )),
+                            )}
+                    </div>
+                </div>
+            ))
+        }
+    </div>
 </ReusableSection>
-
-<style>
-  pre {
-    @apply py-2;
-    background: transparent !important;
-  }
-  /* :global(code) { 
-        @apply grid gap-1.5;
-    } */
-</style>
