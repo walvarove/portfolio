@@ -63,15 +63,17 @@ import { Github, Linkedin, Mail, MapPin, FileDown } from "lucide-react";
                         <Linkedin size={13} />
                         <span>linkedin</span>
                     </a>
-                    <a
-                        href="/resume.pdf"
-                        download="ÁlvaroPedro_Resume.pdf"
-                        class="group flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-mono text-muted-foreground border border-border hover:border-cyan-400/50 hover:text-cyan-400 hover:bg-cyan-400/5 transition-all duration-200"
-                        aria-label="Download resume"
-                    >
-                        <FileDown size={13} />
-                        <span>resume</span>
-                    </a>
+                    {import.meta.env.DEV && (
+                        <a
+                            href="/resume.pdf"
+                            download="ÁlvaroPedro_Resume.pdf"
+                            class="group flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-mono text-muted-foreground border border-border hover:border-cyan-400/50 hover:text-cyan-400 hover:bg-cyan-400/5 transition-all duration-200"
+                            aria-label="Download resume"
+                        >
+                            <FileDown size={13} />
+                            <span>resume</span>
+                        </a>
+                    )}
                 </div>
             </div>
         </div>
