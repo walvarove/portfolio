@@ -4,7 +4,7 @@
     "link": "https://windelivery.io/",
     "start": "2023-12-13",
     "end": null,
-    "description": "Development and maintenance of the backoffice for the management of stores, menus, products... of different big brands such as Burger King.Development and maintenance of the backoffice for the management of stores, menus, products... of different big brands such as Burger King. All development by using practices like Domain Driven Design, Hexagonal Architecture, testing or Event Driven Design, and all hosted in AWS",
+    "description": "Development and maintenance of the backoffice for the management of stores, menus, products... of different big brands such as Burger King. All development by using practices like Domain Driven Design, Hexagonal Architecture, testing or Event Driven Design, and all hosted in AWS",
     "job": "Software Engineer",
     "teckStack": [
       "DDD",
